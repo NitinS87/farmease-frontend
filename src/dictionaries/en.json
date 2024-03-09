@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "hiring": "Hire Skilled Labour",
+    "marketplace": "Marketplace",
+    "rental": "Vehicle Rental",
+    "signup": "Sign Up",
+    "login": "Login"
+  },
+  "home": {
+    "title": "The future of farming is here.",
+    "content": "From skilled labour to vehicle rental, we have everything you need to make your farm a success.",
+    "cta": "Get started"
+  },
+  "offer": {
+    "title": "What we offer",
+    "content": "We offer skilled labour, vehicle rental and a marketplace for all your farming needs.",
+    "labour": "Hire Skilled Labour",
+    "tractor": "Rent a Tractor",
+    "buy": "Buy seeds and fertilizers",
+    "sell": "Sell your produce",
+    "rent": "Rent a delivery truck vehicle",
+    "weather": "Weather forecast"
+  },
+  "why": {
+    "title": "Why FarmEase",
+    "content": "We're transforming agriculture with innovative solutions that help farmers thrive in today's changing landscape.",
+    "benefit1-title": "Increase yield",
+    "benefit1-content": "Our skilled labour and marketplace help you get the most out of your farm.",
+    "benefit2-title": "Save time",
+    "benefit2-content": "Our vehicle rental and marketplace help you save time and money.",
+    "benefit3-title": "Reduce risk",
+    "benefit3-content": "Our weather forecast and marketplace help you reduce risk and make better decisions.",
+    "benefit4-title": "Maximize efficiency",
+    "benefit4-content": "Automate manual processes and streamline your operations."
+  },
+  "values": {
+    "title": "Our values",
+    "content": "We believe in the power of technology to transform agriculture and make it more sustainable.",
+    "value1-title": "Empower farmers",
+    "value1-content": "We're committed to helping farmers succeed by providing the tools, knowledge, and support they need to grow their business sustainably.",
+    "value2-title": "Global impact",
+    "value2-content": "We're building a more resilient and sustainable food system for a healthier planet and  a brighter future for  generations to come.",
+    "value3-title": "Innovation-driven",
+    "value3-content": "We're driving progress in agriculture through cutting-edge technology, data-driven insights, and forward-thinking solutions.",
+    "value4-title": "Partnership approach",
+    "value4-content": "We believe in the power of collaboration and are dedicated to working with our customers and partners to co-create and deliver value.",
+    "value5-title": "Customer-centric",
+    "value5-content": "We're passionate about solving real-world problems and are focused on delivering solutions that meet the needs of our customers and drive meaningful impact.",
+    "value6-title": "Trusted solutions",
+    "value6-content": "We're committed to delivering reliable, high-quality products and services that our customers can trust  to help them run their operations more efficiently, safely, and sustainably."
+  },
+  "footer": {
+    "content": "FarmEase. All rights reserved.",
+    "home": "Home",
+    "marketplace": "Marketplace",
+    "rental": "Rentals",
+    "jobs": "Jobs",
+    "contact": "Contact us",
+    "enter-email": "Enter your email",
+    "subscribe": "Subscribe",
+    "terms": "Terms",
+    "privacy": "Privacy"
+  }
+}
