@@ -50,13 +50,13 @@ const Services = async ({ lang }: { lang: Locale }) => {
     <article className="flex flex-col gap-5">
       <h2 className="text-3xl font-semibold">{offer.title}</h2>
       <h6>{offer.content}</h6>
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 items-center justify-center">
+      <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 items-start justify-center">
         {offers.map((offer, index) => (
           <CustomLink
             href={offer.link}
             lang={lang}
             key={index}
-            className="flex flex-col gap-2 items-center justify-center min-h-[300px]"
+            className="flex flex-col gap-2 items-center justify-center"
           >
             <Image src={offer.img} alt={offer.title} className="rounded-lg" />
             <span className="text-sm md:text-base">{offer.title}</span>

@@ -77,8 +77,8 @@ body {
 
 /* Set the width and height of both horizontal and vertical scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 /* Customize the thumb of both horizontal and vertical scrollbars */
