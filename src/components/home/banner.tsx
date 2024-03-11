@@ -18,9 +18,11 @@ const Banner = async ({ lang }: { lang: Locale }) => {
         priority={true}
         className="w-full h-[550px] object-cover rounded-lg"
       />
-      <div className="absolute bottom-0 left-0 px-10 py-5 flex flex-col items-start justify-start gap-8 text-white">
-        <h2 className="text-3xl md:text-5xl font-semibold">{home.title}</h2>
-        <h6>{home.content}</h6>
+      <div className="absolute bottom-0 left-0 px-10 py-5 flex flex-col items-start justify-start gap-6 text-white">
+        <div className="flex flex-col items-start justify-start gap-2">
+          <h2 className="text-3xl md:text-5xl font-semibold">{home.title}</h2>
+          <span>{home.content}</span>
+        </div>
         <CustomLink href="/signup" lang={lang}>
           <Button variant="default">{home.cta}</Button>
         </CustomLink>
