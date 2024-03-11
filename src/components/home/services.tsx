@@ -56,7 +56,7 @@ const Services = async ({ lang }: { lang: Locale }) => {
             href={offer.link}
             lang={lang}
             key={index}
-            className="flex flex-col gap-2 items-center justify-center"
+            className="flex flex-col gap-2 items-center justify-center hover:scale-105 duration-200 ease-in-out"
           >
             <Image
               src={offer.img}

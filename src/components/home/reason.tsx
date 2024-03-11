@@ -35,10 +35,7 @@ const Reason: FC<ReasonProps> = async ({ lang }) => {
       <h6>{why.content}</h6>
       <section className="grid grid-cols-2 md:grid-cols-4 gap-5 items-start justify-start w-full">
         {reasons.map((reason, index) => (
-          <div
-            key={index}
-            className="flex flex-col gap-2 items-start w-full"
-          >
+          <div key={index} className="flex flex-col gap-2 items-start w-full">
             <Image
               src={reason.img}
               alt={
@@ -47,10 +44,10 @@ const Reason: FC<ReasonProps> = async ({ lang }) => {
               placeholder="blur"
               className="rounded-lg w-full"
             />
-            <h5 className="text-base">
+            <h5 className="text-base text-green-600">
               {(why as { [key: string]: string })[`benefit${index + 1}-title`]}
             </h5>
-            <span className="text-green-400 text-xs md:text-sm">
+            <span className="text-xs md:text-sm">
               {
                 (why as { [key: string]: string })[
                   `benefit${index + 1}-content`

@@ -1,6 +1,7 @@
 import Banner from "@/components/home/banner";
 import Reason from "@/components/home/reason";
 import Services from "@/components/home/services";
+import Values from "@/components/home/values";
 import { Locale } from "@/i18n.config";
 
 export default async function Home({
@@ -13,6 +14,7 @@ export default async function Home({
       <Banner lang={lang} />
       <Services lang={lang} />
       <Reason lang={lang} />
+      <Values lang={lang} />
     </main>
   );
 }
