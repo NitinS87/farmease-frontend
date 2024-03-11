@@ -14,6 +14,7 @@ const Banner = async ({ lang }: { lang: Locale }) => {
       <Image
         src={BannerImage}
         alt="FarmEase"
+        placeholder="blur"
         quality={100}
         priority={true}
         className="w-full h-[550px] object-cover rounded-lg"

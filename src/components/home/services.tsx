@@ -58,7 +58,12 @@ const Services = async ({ lang }: { lang: Locale }) => {
             key={index}
             className="flex flex-col gap-2 items-center justify-center"
           >
-            <Image src={offer.img} alt={offer.title} className="rounded-lg" />
+            <Image
+              src={offer.img}
+              alt={offer.title}
+              className="rounded-lg"
+              placeholder="blur"
+            />
             <span className="text-sm md:text-base">{offer.title}</span>
           </CustomLink>
         ))}

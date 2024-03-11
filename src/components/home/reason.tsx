@@ -44,6 +44,7 @@ const Reason: FC<ReasonProps> = async ({ lang }) => {
               alt={
                 (why as { [key: string]: string })[`benefit${index + 1}-title`]
               }
+              placeholder="blur"
               className="rounded-lg w-full"
             />
             <h5 className="text-base">
