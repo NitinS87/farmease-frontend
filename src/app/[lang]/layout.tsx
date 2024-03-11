@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { Locale } from "@/i18n.config";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <Header lang={params.lang} />
           {children}
+          <Footer lang={params.lang} />
         </ThemeProvider>
       </body>
     </html>
