@@ -67,7 +67,7 @@ const Categories = async ({ lang }: { lang: Locale }) => {
   ];
   return (
     <article className="flex flex-col gap-5 w-full">
-      <h3 className="text-2xl">What do you want to rent?</h3>
+      <h3 className="text-2xl">{categories.title}</h3>
       <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 items-start justify-start w-full">
         {vehicles.map((vehicle, index) => (
           <CustomLink
