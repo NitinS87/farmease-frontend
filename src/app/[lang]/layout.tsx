@@ -8,7 +8,10 @@ import { Locale } from "@/i18n.config";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "FarmEase",
+  title: {
+    default: "FarmEase",
+    template: `%s | FarmEase`,
+  },
   description:
     "FarmEase - One stop solution for all your farming needs. Hire skilled labour, rent vehicles and buy/sell farm products.",
 };

@@ -77,14 +77,14 @@ body {
 
 /* Set the width and height of both horizontal and vertical scrollbars */
 ::-webkit-scrollbar {
-  display: none;
+  width: 8px;
+  height: 8px;
 }
 
 /* Customize the thumb of both horizontal and vertical scrollbars */
 ::-webkit-scrollbar-thumb {
-  background-color: green;
+  background-color: #16a34a;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Customize the track of both horizontal and vertical scrollbars */
