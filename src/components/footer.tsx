@@ -36,11 +36,11 @@ const Footer = async ({ lang }: { lang: Locale }) => {
           {footer.rental}
         </CustomLink>
         <CustomLink
-          href="/jobs"
+          href="/hiring"
           lang={lang}
           className="hover:underline underline-offset-2 hidden lg:inline-block"
         >
-          {footer.jobs}
+          {footer.hiring}
         </CustomLink>
         <CustomLink
           href="/contact"
