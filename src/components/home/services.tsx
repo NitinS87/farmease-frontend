@@ -3,6 +3,7 @@ import { getDictionary } from "@/lib/get-dictionary";
 import Image from "next/image";
 import React from "react";
 import Storage from "../../../public/home/offer/storage.png";
+import Labour from "../../../public/home/offer/labour.png";
 import Tractor from "../../../public/home/offer/tractor.png";
 import SeedsAndFertilizers from "../../../public/home/offer/seeds-and-fertilizers.png";
 import Produce from "../../../public/home/offer/produce.png";
@@ -15,7 +16,7 @@ const Services = async ({ lang }: { lang: Locale }) => {
   const offers = [
     {
       title: offer.labour,
-      img: Storage,
+      img: Labour,
       link: "/hiring/labour",
     },
     {

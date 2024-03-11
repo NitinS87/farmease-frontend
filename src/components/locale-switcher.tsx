@@ -46,7 +46,12 @@ export default function LocaleSwitcher({ lang }: { lang: Locale }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button
+          variant="outline"
+          size="icon"
+          className="flex items-center w-fit gap-1 px-2"
+        >
+          <span>{lang.toLocaleUpperCase()} -</span>
           <Globe2Icon className="h-[1.2rem] w-[1.2rem]" />
         </Button>
       </DropdownMenuTrigger>
