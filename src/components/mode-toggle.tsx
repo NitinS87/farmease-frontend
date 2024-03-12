@@ -12,6 +12,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 export function ModeToggle() {
   const { setTheme } = useTheme();
 
@@ -36,5 +44,26 @@ export function ModeToggle() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+}
+
+export function MobileModeToggle() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <Select
+      onValueChange={(value) => {
+        setTheme(value);
+      }}
+    >
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="light">Light</SelectItem>
+        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="system">System</SelectItem>
+      </SelectContent>
+    </Select>
   );
 }

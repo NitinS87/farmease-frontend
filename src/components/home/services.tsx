@@ -22,7 +22,7 @@ const Services = async ({ lang }: { lang: Locale }) => {
     {
       title: offer.tractor,
       img: Tractor,
-      link: "/rental/tractor",
+      link: "/rental/tractors",
     },
     {
       title: offer.buy,
@@ -37,7 +37,7 @@ const Services = async ({ lang }: { lang: Locale }) => {
     {
       title: offer.rent,
       img: Truck,
-      link: "/rental/truck",
+      link: "/rental/trucks",
     },
 
     {

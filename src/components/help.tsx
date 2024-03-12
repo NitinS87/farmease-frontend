@@ -9,8 +9,8 @@ const Help = async ({ lang }: { lang: Locale }) => {
   return (
     <div className="flex flex-col items-start gap-5 w-full">
       <div className="space-y-1">
-        <h5 className="text-3xl">{help.title}</h5>
-        <p>{help.content}</p>
+        <h5 className="text-xl lg:text-3xl">{help.title}</h5>
+        <p className="text-sm lg:text-base">{help.content}</p>
       </div>
       <CustomLink href="/contact" lang={lang}>
         <Button variant={"outline"}>{help["help-cta"]}</Button>
