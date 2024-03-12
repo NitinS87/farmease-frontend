@@ -6,7 +6,10 @@ import { getDictionary } from "@/lib/get-dictionary";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Rentals",
+  title: {
+    default: "Rentals",
+    template: "%s Rentals",
+  },
   description:
     "Rent your vehicle with us. We offer the best prices and the best service.",
 };

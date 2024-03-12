@@ -14,17 +14,51 @@ import NewHolland from "../../../../../public/rental/vehicles/tractors/new-holla
 import Yanmar from "../../../../../public/rental/vehicles/tractors/yanmar.png";
 import Image from "next/image";
 import CustomLink from "@/components/custom-link";
+import { Metadata, ResolvingMetadata } from "next";
 
-const AllVehicle = async ({
-  params,
-  searchParams,
-}: {
+type Props = {
   params: {
     vehicleType: string;
     lang: Locale;
   };
   searchParams: any;
-}) => {
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: params.vehicleType,
+    openGraph: {
+      images: [
+        "../../../../../public/rental/vehicles/tractors/john-deere.png",
+        ...previousImages,
+      ],
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  const vehicles = [
+    "tractors",
+    "harvesters",
+    "trucks",
+    "combines",
+    "trailers",
+    "cultivators",
+    "ploughs",
+    "planters",
+  ];
+
+  return vehicles.map((vehicle) => ({
+    vehicleType: vehicle,
+  }));
+}
+const AllVehicle = async ({ params, searchParams }: Props) => {
   const { vehicles } = await getDictionary(params.lang);
   // console.log(searchParams, params.vehicleType, params.lang);
 
