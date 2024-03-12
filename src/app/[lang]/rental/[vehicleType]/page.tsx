@@ -23,12 +23,10 @@ const AllVehicle = async ({
     vehicleType: string;
     lang: Locale;
   };
-  searchParams: {
-    query?: string;
-    page?: string;
-  };
+  searchParams: any;
 }) => {
   const { vehicles } = await getDictionary(params.lang);
+  // console.log(searchParams, params.vehicleType, params.lang);
 
   // @ts-ignore
   const name = vehicles[params.vehicleType];
