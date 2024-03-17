@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Hiring = () => {
   return (
-    <div>Hiring</div>
-  )
-}
+    <main className="container flex flex-col items-start my-4 p-4 gap-5 lg:gap-8 justify-start w-full">
+      Hiring
+    </main>
+  );
+};
 
-export default Hiring
+export default Hiring;

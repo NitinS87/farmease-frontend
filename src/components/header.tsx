@@ -29,7 +29,7 @@ const Header = async ({ lang }: { lang: Locale }) => {
           {navigation.hiring}
         </CustomLink>
         <CustomLink
-          href="/marketplace"
+          href="/marketplace/seeds"
           lang={lang}
           className="hover:underline underline-offset-2"
         >

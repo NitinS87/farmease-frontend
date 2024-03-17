@@ -152,6 +152,13 @@
     "email": "Email",
     "address": "Address"
   },
+  "marketplace_categories": {
+    "seeds": "Seeds",
+    "fertilizers": "Fertilizers",
+    "pesticides": "Pesticides",
+    "tools": "Tools",
+    "storage": "Storage"
+  },
   "footer": {
     "content": "FarmEase. All rights reserved.",
     "home": "Home",

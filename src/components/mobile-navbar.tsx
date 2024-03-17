@@ -74,7 +74,7 @@ const MobileNavbar = ({
             </CustomLink>
             <CustomLink
               lang={lang}
-              href="/marketplace"
+              href="/marketplace/seeds"
               className="hover:underline underline-offset-2"
             >
               <Button

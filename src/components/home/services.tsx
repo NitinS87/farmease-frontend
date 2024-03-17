@@ -27,7 +27,7 @@ const Services = async ({ lang }: { lang: Locale }) => {
     {
       title: offer.buy,
       img: SeedsAndFertilizers,
-      link: "/marketplace",
+      link: "/marketplace/seeds",
     },
     // {
     //   title: offer.sell,
