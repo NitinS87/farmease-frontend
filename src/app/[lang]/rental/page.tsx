@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: {
     default: "Rentals",
-    template: "%s Rentals",
+    template: "%s | Rentals",
   },
   description:
     "Rent your vehicle with us. We offer the best prices and the best service.",

@@ -29,20 +29,20 @@ export function middleware(request: NextRequest) {
     const locale = getLocale(request);
 
     if (locale === i18n.defaultLocale) {
-      return NextResponse.rewrite(
-        new URL(
-          `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-          request.url
-        )
-      );
-    }
-
-    return NextResponse.redirect(
-      new URL(
+      const url = new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
         request.url
-      )
+      );
+      url.search = request.nextUrl.search; // Preserve searchParams or query
+      return NextResponse.rewrite(url);
+    }
+
+    const url = new URL(
+      `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
+      request.url
     );
+    url.search = request.nextUrl.search; // Preserve searchParams or query
+    return NextResponse.redirect(url);
   }
 }
 

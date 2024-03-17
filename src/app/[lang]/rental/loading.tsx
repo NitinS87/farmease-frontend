@@ -47,7 +47,7 @@ export const CategoriesLoading: React.FC = () => {
             key={index}
             className="flex flex-col gap-2 items-start w-full duration-300 transform hover:scale-105 hover:shadow-lg ease-in-out active:scale-95 active:shadow-md"
           >
-            <Skeleton className="rounded-lg object-cover w-[300px] h-[200px]" />
+            <Skeleton className="rounded-lg object-cover w-full h-[200px]" />
             <Skeleton className="h-4 w-1/2" />
             <Skeleton className="h-3 w-3/4" />
           </div>
@@ -60,7 +60,7 @@ export const CategoriesLoading: React.FC = () => {
 export const HelpLoading: React.FC = () => {
   return (
     <div className="flex flex-col items-start gap-5 w-full">
-      <div className="space-y-1">
+      <div className="space-y-1 w-full">
         <Skeleton className="h-6 w-1/2" />
         <Skeleton className="h-4 w-3/4" />
       </div>

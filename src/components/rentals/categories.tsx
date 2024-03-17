@@ -82,7 +82,7 @@ const Categories = async ({ lang }: { lang: Locale }) => {
               placeholder="blur"
               width={300}
               height={200}
-              className="rounded-lg object-cover w-[300px] h-[200px]"
+              className="rounded-lg object-cover w-full h-[200px]"
             />
             <h5 className="text-base text-green-600">{vehicle.name}</h5>
             <span className="text-xs md:text-sm">{vehicle.cost}</span>

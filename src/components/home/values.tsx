@@ -30,11 +30,11 @@ const Values = async ({ lang }: { lang: Locale }) => {
     <article className="flex flex-col gap-5 w-full">
       <h2 className="text-3xl font-semibold">{values.title}</h2>
       <h6>{values.content}</h6>
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-5 items-start justify-start w-full">
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-5 items-center justify-center w-full">
         {items.map((value, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 items-start w-full border rounded-2xl p-4 hover:scale-105 duration-300 ease-in-out"
+            className="flex flex-col gap-2 items-start w-full h-full border rounded-2xl p-4 hover:scale-105 duration-300 ease-in-out"
           >
             <div className="flex items-center justify-center w-10 h-10 rounded-full">
               {value.icons}

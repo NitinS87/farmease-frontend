@@ -42,11 +42,11 @@ const Steps = async ({ lang }: { lang: Locale }) => {
         <h3 className="text-2xl">{steps.title}</h3>
         <h6>{steps.content}</h6>
       </div>
-      <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 items-start justify-start w-full">
+      <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 items-center justify-center w-full">
         {stepsImg.map((step, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 items-start w-full border rounded-lg p-4 duration-300 transform hover:scale-105 hover:shadow-lg ease-in-out"
+            className="flex flex-col gap-2 items-start w-full h-full border rounded-lg p-4 duration-300 transform hover:scale-105 hover:shadow-lg ease-in-out"
           >
             <step.img
               width={40}
