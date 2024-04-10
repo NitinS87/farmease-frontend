@@ -159,6 +159,20 @@
     "tools": "Tools",
     "storage": "Storage"
   },
+  "marketplace_details": {
+    "description": "Description",
+    "specifications": "Specifications",
+    "flavour": "Flavour",
+    "weight": "Weight",
+    "price": "Price",
+    "quantity": "Quantity",
+    "item_form": "Item Form",
+    "speciality": "Speciality",
+    "brand": "Brand",
+    "packaging": "Packaging",
+    "buy": "Buy",
+    "shipping": "Shipping"
+  },
   "footer": {
     "content": "FarmEase. All rights reserved.",
     "home": "Home",

@@ -159,6 +159,20 @@
     "tools": "उपकरण",
     "storage": "संग्रहण"
   },
+  "marketplace_details": {
+    "description": "विवरण",
+    "specifications": "विनिर्देश",
+    "flavour": "स्वाद",
+    "weight": "वजन",
+    "price": "मूल्य",
+    "quantity": "मात्रा",
+    "item_form": "आइटम रूप",
+    "speciality": "विशेषता",
+    "brand": "ब्रांड",
+    "buy": "खरीदें",
+    "packaging": "पैकेजिंग",
+    "shipping": "शिपिंग"
+  },
   "footer": {
     "content": "फार्मईस। सभी अधिकार सुरक्षित।",
     "home": "होम",
