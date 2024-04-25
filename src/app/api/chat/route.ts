@@ -4,7 +4,7 @@ import { GoogleGenerativeAIStream, Message, StreamingTextResponse } from "ai";
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
 
 export const dynamic = "force-dynamic";
-export const runtime = "edge";
+// export const runtime = "edge";
 
 // convert messages from the Vercel AI SDK Format to the format
 // that is expected by the Google GenAI SDK
