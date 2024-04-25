@@ -173,6 +173,16 @@
     "buy": "Buy",
     "shipping": "Shipping"
   },
+  "chat": {
+    "title": "Welcome to Kisaan-Sathi! How can I help you today?",
+    "cultivation": "Crop Cultivation",
+    "pest": "Pest Management",
+    "irrigation": "Irrigation",
+    "fertilizers": "Fertilizers",
+    "organic-farming": "Organic Farming",
+    "government-schemes": "Government Schemes",
+    "start": "Ask me anything about farming..."
+  },
   "footer": {
     "content": "FarmEase. All rights reserved.",
     "home": "Home",

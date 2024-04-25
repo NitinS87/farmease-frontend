@@ -1,10 +1,7 @@
-import OpenAI from "openai";
-import { OpenAIStream, StreamingTextResponse } from "ai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAIStream, StreamingTextResponse } from "ai";
 
-// Create an OpenAI API client (that's edge friendly!)
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
 
 export const dynamic = "force-dynamic";
 
@@ -12,16 +9,15 @@ export async function POST(req: Request) {
   // Extract the `prompt` from the body of the request
   const { prompt } = await req.json();
 
-  // Ask OpenAI for a streaming completion given the prompt
-  const response = await openai.completions.create({
-    model: "gpt-3.5-turbo-instruct",
-    max_tokens: 2000,
-    stream: true,
-    prompt,
-  });
+  // Ask Google Generative AI for a streaming completion given the prompt
+  const response = await genAI
+    .getGenerativeModel({ model: "gemini-pro" })
+    .generateContentStream({
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+    });
 
   // Convert the response into a friendly text-stream
-  const stream = OpenAIStream(response);
+  const stream = GoogleGenerativeAIStream(response);
 
   // Respond with the stream
   return new StreamingTextResponse(stream);
