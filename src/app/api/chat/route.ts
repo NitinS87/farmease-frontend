@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 
   const geminiStream = await genAI
     .getGenerativeModel({
-      model: "gemini-pro",
+      model: "gemini-1.5-pro-latest",
       systemInstruction: {
         role: "system",
         parts: [
