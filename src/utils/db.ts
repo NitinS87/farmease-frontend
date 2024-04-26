@@ -68,9 +68,15 @@ const getVehicleById = async (id: string) => {
   return vehicle;
 };
 
+const getJobs = async () => {
+  const jobs = await prisma.job.findMany();
+
+  return jobs;
+};
 export {
   getUserFromDb,
   getVehicileCategories,
   getAllVehiclesOfCategory,
   getVehicleById,
+  getJobs,
 };

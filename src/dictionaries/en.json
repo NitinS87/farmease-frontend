@@ -184,6 +184,17 @@
     "government-schemes": "Government Schemes",
     "start": "Ask me anything about farming..."
   },
+  "jobs": {
+    "title": "Available Jobs",
+    "content": "Find the perfect job for you in the agriculture sector.",
+    "duration": "Duration",
+    "land": "Land Size",
+    "location": "Location",
+    "compensation": "Compensation",
+    "apply": "Apply now",
+    "days": "days",
+    "perJob": "per job"
+  },
   "footer": {
     "content": "FarmEase. All rights reserved.",
     "home": "Home",

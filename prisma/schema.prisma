@@ -89,6 +89,7 @@ model Job {
   landmark       String
   completionDays Int
   wage           Float
+  landArea       Float    @default(0)
   images         String[]
   requirements   Json?
   featured       Boolean  @default(false)

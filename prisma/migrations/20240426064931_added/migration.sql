@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "jobs" ADD COLUMN     "landArea" DOUBLE PRECISION NOT NULL DEFAULT 0;
