@@ -8,7 +8,6 @@ import { MobileModeToggle } from "./mode-toggle";
 import LocaleSwitcher from "./locale-switcher";
 import { signOut, useSession } from "next-auth/react";
 import { LogOut } from "lucide-react";
-import { logout } from "@/lib/action";
 const MobileNavbar = ({
   navigation,
   lang,
@@ -116,7 +115,7 @@ const MobileNavbar = ({
             </CustomLink>
             <MobileModeToggle />
             <LocaleSwitcher lang={lang} />
-            {session && (
+            {!session ? (
               <>
                 <CustomLink href="/signup" lang={lang}>
                   <Button variant={"default"} onClick={() => setIsOpen(false)}>
@@ -129,6 +128,16 @@ const MobileNavbar = ({
                   </Button>
                 </CustomLink>
               </>
+            ) : (
+              // Logout Button
+              <Button
+                onClick={() => async () => {
+                  await signOut({ redirect: false });
+                }}
+                className="flex w-full items-center"
+              >
+                <LogOut className="mr-2 h-4 w-4" /> Sign Out
+              </Button>
             )}
           </div>
         </div>
