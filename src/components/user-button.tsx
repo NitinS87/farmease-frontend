@@ -37,12 +37,12 @@ export default function UserButton({ user }: UserButtonProps) {
         <DropdownMenuLabel>{user.name || "User"}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem asChild>
+          {/* <DropdownMenuItem asChild>
             <Link href="/settings">
               <Settings className="mr-2 h-4 w-4" />
               <span>Settings</span>
             </Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           {/* TODO: Show this only for admins */}
           {/* <DropdownMenuItem asChild>
                 <Link href="/admin">
@@ -51,7 +51,7 @@ export default function UserButton({ user }: UserButtonProps) {
                 </Link>
               </DropdownMenuItem> */}
         </DropdownMenuGroup>
-        <DropdownMenuSeparator />
+        {/* <DropdownMenuSeparator /> */}
         <DropdownMenuItem asChild>
           <form
             action={async () => {

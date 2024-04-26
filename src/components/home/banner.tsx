@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import CustomLink from "../custom-link";
 import { Button } from "../ui/button";
 import { Locale } from "@/i18n.config";
 import BannerImage from "../../../public/home/banner.png";
 import { getDictionary } from "@/lib/get-dictionary";
+import { signIn } from "@/auth";
 
 const Banner = async ({ lang }: { lang: Locale }) => {
   const { home } = await getDictionary(lang);
@@ -24,9 +24,15 @@ const Banner = async ({ lang }: { lang: Locale }) => {
           <h2 className="text-3xl md:text-5xl font-semibold">{home.title}</h2>
           <span>{home.content}</span>
         </div>
-        <CustomLink href="/signup" lang={lang}>
-          <Button variant="default">{home.cta}</Button>
-        </CustomLink>
+        <Button
+          variant="default"
+          onClick={async () => {
+            "use server";
+            await signIn();
+          }}
+        >
+          {home.cta}
+        </Button>
       </div>
     </article>
   );
