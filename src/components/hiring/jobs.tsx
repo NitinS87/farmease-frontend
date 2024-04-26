@@ -1,15 +1,22 @@
 import { Locale } from "@/i18n.config";
 import { getJobs } from "@/utils/db";
 import React, { FC } from "react";
-import CustomLink from "../custom-link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { getDictionary } from "@/lib/get-dictionary";
+import { auth, signIn } from "@/auth";
+import ApplyButton from "./apply-button";
 
 type JobsProps = {
   lang: Locale;
 };
 const Jobs: FC<JobsProps> = async ({ lang }) => {
+  const session = await auth();
+
+  if (!session) {
+    await signIn();
+  }
+
   const { jobs } = await getDictionary(lang);
   const allJobs = await getJobs();
   return (
@@ -43,14 +50,7 @@ const Jobs: FC<JobsProps> = async ({ lang }) => {
                 </p>
               </div>
             </div>
-            <a
-              href={`https://wa.me/${job.user.phoneNumber}/?text=I%20am%20interested%20in%20the%20job%20${job.title}`}
-              className="w-full"
-            >
-              <Button className="mt-4" variant={"default"}>
-                {jobs.apply}
-              </Button>
-            </a>
+            <ApplyButton job={job} lang={lang} jobs={jobs} />
           </CardContent>
         </Card>
       ))}

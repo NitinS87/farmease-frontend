@@ -96,6 +96,8 @@ export function DatePickerWithRange({
       <a
         href={`https://wa.me/${vehicle.user.phoneNumber}/?text=${encodedWhatsappMessage}`}
         className="w-full"
+        target="_blank" // Open in new tab
+        rel="noopener noreferrer" // Security best practice
       >
         <Button variant={"default"} className="w-[300px]">
           {vehicle_details.book} - ₹{numberOfDays * price || "Select Dates"}
