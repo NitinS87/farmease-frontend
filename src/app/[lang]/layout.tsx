@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { Locale } from "@/i18n.config";
 import Footer from "@/components/footer";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,9 +39,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header lang={params.lang} />
-          {children}
-          <Footer lang={params.lang} />
+          <SessionProvider>
+            <Header lang={params.lang} />
+            {children}
+            <Footer lang={params.lang} />
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>

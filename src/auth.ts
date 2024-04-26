@@ -3,11 +3,11 @@ import Google from "next-auth/providers/google";
 import Facebook from "next-auth/providers/facebook";
 import Credentials from "next-auth/providers/credentials";
 import { signInSchema } from "./lib/schema";
-import { saltAndHashPassword } from "./lib/password";
 import { ZodError } from "zod";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "./utils/prisma";
 import { getUserFromDb } from "./utils/db";
+import { saltAndHashPassword } from "./lib/password";
 
 export const { signIn, signOut, auth, handlers } = NextAuth({
   providers: [

@@ -6,7 +6,9 @@ import { getDictionary } from "@/lib/get-dictionary";
 import { Button } from "./ui/button";
 import { MobileModeToggle } from "./mode-toggle";
 import LocaleSwitcher from "./locale-switcher";
-
+import { signOut, useSession } from "next-auth/react";
+import { LogOut } from "lucide-react";
+import { logout } from "@/lib/action";
 const MobileNavbar = ({
   navigation,
   lang,
@@ -14,6 +16,7 @@ const MobileNavbar = ({
   navigation: Awaited<ReturnType<typeof getDictionary>>["navigation"];
   lang: Locale;
 }) => {
+  const session = useSession();
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -98,18 +101,35 @@ const MobileNavbar = ({
                 {navigation.rental}
               </Button>
             </CustomLink>
+            <CustomLink
+              lang={lang}
+              href="/ai"
+              className="hover:underline underline-offset-2"
+            >
+              <Button
+                variant={"link"}
+                onClick={() => setIsOpen(false)}
+                className="text-accent-foreground text-lg"
+              >
+                {navigation.ai}
+              </Button>
+            </CustomLink>
             <MobileModeToggle />
             <LocaleSwitcher lang={lang} />
-            <CustomLink href="/signup" lang={lang}>
-              <Button variant={"default"} onClick={() => setIsOpen(false)}>
-                {navigation.signup}
-              </Button>
-            </CustomLink>
-            <CustomLink href="/login" lang={lang}>
-              <Button variant={"outline"} onClick={() => setIsOpen(false)}>
-                {navigation.login}
-              </Button>
-            </CustomLink>
+            {session && (
+              <>
+                <CustomLink href="/signup" lang={lang}>
+                  <Button variant={"default"} onClick={() => setIsOpen(false)}>
+                    {navigation.signup}
+                  </Button>
+                </CustomLink>
+                <CustomLink href="/login" lang={lang}>
+                  <Button variant={"outline"} onClick={() => setIsOpen(false)}>
+                    {navigation.login}
+                  </Button>
+                </CustomLink>
+              </>
+            )}
           </div>
         </div>
       </div>
