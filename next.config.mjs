@@ -11,6 +11,9 @@ const nextConfig = {
       {
         hostname: "afbecgmoz6y1ka7w.public.blob.vercel-storage.com",
       },
+      {
+        hostname: "farmease.blob.core.windows.net",
+      },
     ],
   },
 };
