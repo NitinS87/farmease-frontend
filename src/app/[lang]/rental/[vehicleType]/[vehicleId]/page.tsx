@@ -45,9 +45,9 @@ const Vehicle: FC<VehicleProps> = async ({ params, searchParams }) => {
           <h1 className="text-2xl lg:text-4xl font-semibold text-white">
             {vehicle?.name || "John Deere 5100M"}
           </h1>
-          <p className="text-base lg:text-lg text-white">
+          {/* <p className="text-base lg:text-lg text-white">
             100HP | 4WD | Cab | A/C
-          </p>
+          </p> */}
         </div>
       </div>
       <div className="w-full space-y-3">
