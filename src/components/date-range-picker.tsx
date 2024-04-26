@@ -19,11 +19,13 @@ export function DatePickerWithRange({
   className,
   vehicle_details,
   price,
+  vehicle,
 }: React.HTMLAttributes<HTMLDivElement> & {
   vehicle_details: Awaited<
     ReturnType<typeof getDictionary>
   >["vehicles_details"];
   price: number;
+  vehicle: any;
 }) {
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: new Date(),
@@ -39,6 +41,18 @@ export function DatePickerWithRange({
       : 0;
 
   // console.log(numberOfDays);
+  // Calculate the WhatsApp message
+  const whatsappMessage = `I am interested in the vehicle ${
+    vehicle.name
+  } from ${format(date!.from || new Date().getDate(), "LLL dd, y")} to ${format(
+    date!.to || addDays(new Date(), 1).getDate(),
+    "LLL dd, y"
+  )}. It will cost me ₹${
+    numberOfDays * price
+  }. Can you please provide me with more details?`;
+
+  // Encode the WhatsApp message
+  const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
 
   return (
     <div className={cn("grid gap-2", className)}>
@@ -79,9 +93,14 @@ export function DatePickerWithRange({
         </PopoverContent>
       </Popover>
       {/* Book Now */}
-      <Button variant={"default"} className="w-[300px]">
-        {vehicle_details.book} - ₹{numberOfDays * price || "Select Dates"}
-      </Button>
+      <a
+        href={`https://wa.me/${vehicle.user.phoneNumber}/?text=I%20am%20interested%20in%20the%20job%20${vehicle.id}`}
+        className="w-full"
+      >
+        <Button variant={"default"} className="w-[300px]">
+          {vehicle_details.book} - ₹{numberOfDays * price || "Select Dates"}
+        </Button>
+      </a>
     </div>
   );
 }

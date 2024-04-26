@@ -195,6 +195,7 @@ const Vehicle: FC<VehicleProps> = async ({ params, searchParams }) => {
           className="place-items-center md:place-items-start"
           vehicle_details={vehicles_details}
           price={vehicle.pricePerDay}
+          vehicle={vehicle}
         />
       </div>
     </main>

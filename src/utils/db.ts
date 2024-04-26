@@ -62,6 +62,12 @@ const getVehicleById = async (id: string) => {
       specifications: true,
       userId: true,
       createdAt: true,
+      user: {
+        select: {
+          name: true,
+          phoneNumber: true,
+        },
+      },
     },
   });
 
