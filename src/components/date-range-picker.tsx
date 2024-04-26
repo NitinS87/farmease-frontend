@@ -94,7 +94,7 @@ export function DatePickerWithRange({
       </Popover>
       {/* Book Now */}
       <a
-        href={`https://wa.me/${vehicle.user.phoneNumber}/?text=I%20am%20interested%20in%20the%20job%20${vehicle.id}`}
+        href={`https://wa.me/${vehicle.user.phoneNumber}/?text=${encodedWhatsappMessage}`}
         className="w-full"
       >
         <Button variant={"default"} className="w-[300px]">
