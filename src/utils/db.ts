@@ -69,7 +69,11 @@ const getVehicleById = async (id: string) => {
 };
 
 const getJobs = async () => {
-  const jobs = await prisma.job.findMany();
+  const jobs = await prisma.job.findMany({
+    include: {
+      user: true,
+    },
+  });
 
   return jobs;
 };
