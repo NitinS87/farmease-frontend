@@ -17,49 +17,49 @@ const Categories = async ({ lang }: { lang: Locale }) => {
 
   const vehicles = [
     {
-      href: "/rental/tractors",
+      href: "/rental/tractor",
       img: Tracktor,
       name: categories.tractors,
       cost: categories["tractors-cost"],
     },
     {
-      href: "/rental/harvesters",
+      href: "/rental/harvester",
       img: Harvester,
       name: categories.harvesters,
       cost: categories["harvesters-cost"],
     },
     {
-      href: "/rental/trucks",
+      href: "/rental/truck",
       img: Trucks,
       name: categories.trucks,
       cost: categories["trucks-cost"],
     },
     {
-      href: "/rental/combines",
+      href: "/rental/combine",
       img: Combines,
       name: categories.combines,
       cost: categories["combines-cost"],
     },
     {
-      href: "/rental/trailers",
+      href: "/rental/trailer",
       img: Trailers,
       name: categories.trailers,
       cost: categories["trailers-cost"],
     },
     {
-      href: "/rental/cultivators",
+      href: "/rental/cultivator",
       img: Cultivator,
       name: categories.cultivators,
       cost: categories["cultivators-cost"],
     },
     {
-      href: "/rental/ploughs",
+      href: "/rental/plough",
       img: Plough,
       name: categories.ploughs,
       cost: categories["ploughs-cost"],
     },
     {
-      href: "/rental/planters",
+      href: "/rental/planter",
       img: Planters,
       name: categories.planters,
       cost: categories["planters-cost"],

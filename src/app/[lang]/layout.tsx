@@ -9,6 +9,7 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://farmease-frontend.vercel.app/"),
   title: {
     default: "FarmEase",
     template: `%s | FarmEase`,

@@ -6,6 +6,7 @@ import { getDictionary } from "@/lib/get-dictionary";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://farmease-frontend.vercel.app/"),
   title: {
     default: "Rentals",
     template: "%s | Rentals",

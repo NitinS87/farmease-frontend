@@ -16,6 +16,7 @@ import Image from "next/image";
 import CustomLink from "@/components/custom-link";
 import { Metadata, ResolvingMetadata } from "next";
 import { VehiclesSkeleton } from "./loading";
+import { getAllVehiclesOfCategory, getVehicileCategories } from "@/utils/db";
 
 type Props = {
   params: {
@@ -36,6 +37,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
+    metadataBase: new URL("https://farmease-frontend.vercel.app/"),
     title:
       params.vehicleType.charAt(0).toUpperCase() + params.vehicleType.slice(1),
     openGraph: {
@@ -48,19 +50,10 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const vehicles = [
-    "tractors",
-    "harvesters",
-    "trucks",
-    "combines",
-    "trailers",
-    "cultivators",
-    "ploughs",
-    "planters",
-  ];
+  const vehicles = await getVehicileCategories();
 
   return vehicles.map((vehicle) => ({
-    vehicleType: vehicle,
+    vehicleType: vehicle.type,
   }));
 }
 const AllVehicle = async ({ params, searchParams }: Props) => {
@@ -99,68 +92,11 @@ const Vehicles: React.FC<Props> = async ({ params, searchParams }) => {
 
   // @ts-ignore
   const name = vehicles[params.vehicleType];
-  const fetchedVehicles = [
-    {
-      id: 1,
-      name: "John Deere 8335R",
-      price: 1000,
-      image: JohnDeere,
-    },
-    {
-      id: 2,
-      name: "Agco DT275B",
-      price: 1200,
-      image: Agco,
-    },
-    {
-      id: 3,
-      name: "Agrotron 7250 TTV",
-      price: 1300,
-      image: Agrotron,
-    },
-    {
-      id: 4,
-      name: "Challenger MT875E",
-      price: 1400,
-      image: Challenger,
-    },
-    {
-      id: 5,
-      name: "Deltatrack 570",
-      price: 1500,
-      image: Deltatrack,
-    },
-    {
-      id: 6,
-      name: "Ferguson 5710",
-      price: 1600,
-      image: Ferguson,
-    },
-    {
-      id: 7,
-      name: "Kuboto M7-171",
-      price: 1700,
-      image: Kuboto,
-    },
-    {
-      id: 8,
-      name: "Magnum 380",
-      price: 1800,
-      image: Magnum,
-    },
-    {
-      id: 9,
-      name: "New Holland T8.410",
-      price: 1900,
-      image: NewHolland,
-    },
-    {
-      id: 10,
-      name: "Yanmar YT359",
-      price: 2000,
-      image: Yanmar,
-    },
-  ];
+  const fetchedVehicles = await getAllVehiclesOfCategory(
+    params.vehicleType,
+    currentPage,
+    query
+  );
 
   const filterQuery = searchParams?.query || "";
   const filteredVehicles = filterQuery
@@ -179,16 +115,18 @@ const Vehicles: React.FC<Props> = async ({ params, searchParams }) => {
           className="flex flex-col items-center justify-center p-4 rounded-lg shadow-md"
         >
           <Image
-            src={vehicle.image}
+            src={vehicle.images[0]}
             alt={vehicle.name}
+            width={300}
+            height={200}
             className="object-cover rounded-lg"
-            placeholder="blur"
+            // placeholder="blur"
           />
           <h3 className="text-base md:text-lg font-semibold text-center">
             {vehicle.name}
           </h3>
           <p className="text-sm">
-            ₹{vehicle.price}
+            ₹{vehicle.pricePerDay}
             {vehicles["price"]}
           </p>
         </CustomLink>

@@ -7,6 +7,7 @@ import CustomLink from "./custom-link";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/get-dictionary";
 import MobileNavbar from "./mobile-navbar";
+import UserNavbar from "./user-navbar";
 
 const Header = async ({ lang }: { lang: Locale }) => {
   const { navigation } = await getDictionary(lang);
@@ -42,14 +43,17 @@ const Header = async ({ lang }: { lang: Locale }) => {
         >
           {navigation.rental}
         </CustomLink>
+        <CustomLink
+          href="/chat"
+          lang={lang}
+          className="hover:underline underline-offset-2"
+        >
+          {navigation.ai}
+        </CustomLink>
+
         <ModeToggle />
         <LocaleSwitcher lang={lang} />
-        <CustomLink href="/signup" lang={lang}>
-          <Button variant={"default"}>{navigation.signup}</Button>
-        </CustomLink>
-        <CustomLink href="/login" lang={lang}>
-          <Button variant={"outline"}>{navigation.login}</Button>
-        </CustomLink>
+        <UserNavbar lang={lang} navigation={navigation} />
       </div>
       <MobileNavbar lang={lang} navigation={navigation} />
     </nav>

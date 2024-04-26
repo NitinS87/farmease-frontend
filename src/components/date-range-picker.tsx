@@ -18,10 +18,12 @@ import { getDictionary } from "@/lib/get-dictionary";
 export function DatePickerWithRange({
   className,
   vehicle_details,
+  price,
 }: React.HTMLAttributes<HTMLDivElement> & {
   vehicle_details: Awaited<
     ReturnType<typeof getDictionary>
   >["vehicles_details"];
+  price: number;
 }) {
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: new Date(),
@@ -78,7 +80,7 @@ export function DatePickerWithRange({
       </Popover>
       {/* Book Now */}
       <Button variant={"default"} className="w-[300px]">
-        {vehicle_details.book} - ₹{numberOfDays * 1000 || "Select Dates"}
+        {vehicle_details.book} - ₹{numberOfDays * price || "Select Dates"}
       </Button>
     </div>
   );
