@@ -193,7 +193,9 @@
     "compensation": "Compensation",
     "apply": "Apply now",
     "days": "days",
-    "perJob": "per job"
+    "perJob": "per job",
+    "create": "Create a Job",
+    "create_content": "Want to create a job? Sign in now and create!"
   },
   "footer": {
     "content": "FarmEase. All rights reserved.",
