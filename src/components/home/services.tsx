@@ -17,12 +17,12 @@ const Services = async ({ lang }: { lang: Locale }) => {
     {
       title: offer.labour,
       img: Labour,
-      link: "/hiring/labour",
+      link: "/hiring",
     },
     {
       title: offer.tractor,
       img: Tractor,
-      link: "/rental/tractors",
+      link: "/rental/tractor",
     },
     {
       title: offer.buy,
@@ -37,13 +37,13 @@ const Services = async ({ lang }: { lang: Locale }) => {
     {
       title: offer.rent,
       img: Truck,
-      link: "/rental/trucks",
+      link: "/rental/truck",
     },
 
     {
       title: offer.weather,
       img: Weather,
-      link: "/ai",
+      link: "/chat",
     },
   ];
   return (

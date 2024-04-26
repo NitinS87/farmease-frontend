@@ -18,7 +18,7 @@ const Vehicle: FC<MarketPlaceItemProps> = async ({ params, searchParams }) => {
   const { marketplace_details } = await getDictionary(params.lang);
   return (
     <main className="container flex flex-col items-start my-4 p-4 gap-5 lg:gap-8 justify-start w-full">
-      <div className="flex items-start space-x-10">
+      <div className="flex flex-col lg:flex-row items-start lg:space-x-10 space-y-2">
         <Image
           src={Corn}
           alt="Corn"

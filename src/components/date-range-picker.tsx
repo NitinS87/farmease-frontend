@@ -55,7 +55,7 @@ export function DatePickerWithRange({
   const encodedWhatsappMessage = encodeURIComponent(whatsappMessage);
 
   return (
-    <div className={cn("grid gap-2", className)}>
+    <div className={cn("grid gap-2 place-content-start", className)}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
@@ -95,7 +95,7 @@ export function DatePickerWithRange({
       {/* Book Now */}
       <a
         href={`https://wa.me/${vehicle.user.phoneNumber}/?text=${encodedWhatsappMessage}`}
-        className="w-full"
+        className="w-full mx-auto"
         target="_blank" // Open in new tab
         rel="noopener noreferrer" // Security best practice
       >
