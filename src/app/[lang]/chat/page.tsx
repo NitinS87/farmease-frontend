@@ -3,6 +3,8 @@ import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/get-dictionary";
 import Chat from "@/components/chat";
 
+export const dynamic = "force-dynamic";
+
 type ChatPageProps = {
   params: {
     lang: Locale;

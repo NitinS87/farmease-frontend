@@ -102,7 +102,7 @@ const MobileNavbar = ({
             </CustomLink>
             <CustomLink
               lang={lang}
-              href="/ai"
+              href="/chat"
               className="hover:underline underline-offset-2"
             >
               <Button

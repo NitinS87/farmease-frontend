@@ -35,13 +35,16 @@ const Chat = ({
   }, [messages]);
 
   return (
-    <main className="flex-1 p-6 container rounded-lg lg:border lg:my-6 relative h-[calc(100%_-_5rem)] lg:h-[calc(100%_-_11rem)] overflow-hidden">
+    <main className="flex-1 py-2 md:p-6 container rounded-lg lg:border lg:my-6 relative h-[calc(100%_-_5rem)] lg:h-[calc(100%_-_11rem)] overflow-hidden">
       <div className="overflow-y-auto h-full w-full" ref={scrollRef}>
         {messages.length > 0 ? (
-          messages.map((message) => (
+          messages.map((message, index) => (
             <div
               key={message.id}
-              className={"group relative mb-4 flex items-start"}
+              className={cn(
+                "group relative flex items-start mb-4",
+                messages.length - 1 == index && "mb-14 lg:mb-12"
+              )}
             >
               <div
                 className={cn(
