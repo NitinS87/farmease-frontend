@@ -51,4 +51,4 @@ export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
 
-export { auth } from "@/auth";
+// export { auth } from "@/auth";
