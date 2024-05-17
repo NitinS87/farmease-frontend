@@ -3,7 +3,7 @@
 import { action } from "@/lib/safe-action";
 import prisma from "@/utils/prisma";
 import { For, JobType, Status } from "@prisma/client";
-import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 const schema = z
@@ -56,7 +56,7 @@ export const createJob = action(schema, async (data) => {
     return { success: false, error: "Failed to create job" };
   }
 
-  redirect("/hiring");
+  revalidatePath("/hiring");
 
   return { success: true };
 });

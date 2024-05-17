@@ -30,6 +30,7 @@ import {
 import { createJob } from "@/app/server/create-job";
 import { For, JobType, Status } from "@prisma/client";
 import { User } from "next-auth";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
   title: z.string().min(2, {
@@ -52,6 +53,7 @@ const FormSchema = z.object({
 
 export type FormType = z.infer<typeof FormSchema>;
 const CreateJobForm = ({ user }: { user: User }) => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -79,6 +81,7 @@ const CreateJobForm = ({ user }: { user: User }) => {
 
         // reset the form
         form.reset();
+        router.replace("/hiring");
       } else {
         toast({
           title: "Job creation failed",
@@ -112,22 +115,13 @@ const CreateJobForm = ({ user }: { user: User }) => {
     },
     onExecute: () => {
       toast({
-        title: "Creating job",
-        description: "Creating job",
+        title: "Creating job...",
+        description: "Your job is being created. Please wait...",
       });
     },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-
     const dataWithUserId = data as any;
     dataWithUserId.userId = user.id;
 
