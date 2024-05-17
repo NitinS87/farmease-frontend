@@ -37,6 +37,10 @@ export async function POST(req: Request) {
           },
         ],
       },
+      generationConfig: {
+        maxOutputTokens: 1000,
+        temperature: 0.5,
+      },
     })
     .generateContentStream(buildGoogleGenAIPrompt(messages));
 
