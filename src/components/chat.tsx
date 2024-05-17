@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 import { MemoizedReactMarkdown } from "@/components/markdown";
 
@@ -14,36 +14,66 @@ import {
 } from "@/components/ui/icons";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { useChat } from "ai/react";
 import { ChangeEvent, useEffect, useRef } from "react";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { getDictionary } from "@/lib/get-dictionary";
+import { readStreamableValue } from "ai/rsc";
+import { Message, continueConversation } from "@/app/server/generate";
 
 const Chat = ({
   chat,
 }: {
   chat: Awaited<ReturnType<typeof getDictionary>>["chat"];
 }) => {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const [conversation, setConversation] = useState<Message[]>([]);
+  const [input, setInput] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, [conversation]);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const { messages, newMessage } = await continueConversation([
+      ...conversation,
+      { role: "user", content: input },
+    ]);
+
+    let textContent = "";
+
+    setLoading(false);
+    for await (const delta of readStreamableValue(newMessage)) {
+      textContent = `${textContent}${delta}`;
+
+      setConversation([
+        ...messages,
+        { role: "assistant", content: textContent },
+      ]);
+    }
+
+    setInput("");
+  };
 
   return (
     <main className="flex-1 py-2 md:p-6 container rounded-lg lg:border lg:my-6 relative h-[calc(100%_-_5rem)] lg:h-[calc(100%_-_11rem)] overflow-hidden">
       <div className="overflow-y-auto h-full w-full" ref={scrollRef}>
-        {messages.length > 0 ? (
-          messages.map((message, index) => (
+        {conversation.length > 0 ? (
+          conversation.map((message, index) => (
             <div
-              key={message.id}
+              key={index}
               className={cn(
                 "group relative flex items-start mb-4",
-                messages.length - 1 == index && "mb-14 lg:mb-12"
+                conversation.length - 1 == index && "mb-14 lg:mb-12"
               )}
             >
               <div
@@ -62,6 +92,21 @@ const Chat = ({
                   {message.content}
                 </MemoizedReactMarkdown>
               </div>
+              {loading && (
+                <>
+                  <div
+                    className={cn(
+                      "flex size-8 shrink-0 select-none items-center justify-center rounded-lg border shadow",
+                      message.role === "user" ? "bg-background" : "bg-popover"
+                    )}
+                  >
+                    {message.role === "user" ? <IconUser /> : <GeminiIcon />}
+                  </div>
+                  <div className="flex-1 px-1 ml-4 space-y-2 overflow-hidden">
+                    <span className="loader"></span>
+                  </div>
+                </>
+              )}
             </div>
           ))
         ) : (
