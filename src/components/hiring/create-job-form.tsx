@@ -5,6 +5,7 @@ import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useAction } from "next-safe-action/hooks";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -19,7 +20,6 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
 import Location from "@/components/hiring/location";
-import Requirements from "@/components/hiring/requirements";
 import {
   Select,
   SelectContent,
@@ -27,27 +27,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { createJob } from "@/app/server/create-job";
+import { For, JobType, Status } from "@prisma/client";
+import { User } from "next-auth";
 
 const FormSchema = z.object({
   title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
   description: z.string(),
-  latitude: z.number(),
-  longitude: z.number(),
-  landmark: z.string(),
-  completionDays: z.number().int(),
-  wage: z.number(),
-  landArea: z.number().default(0),
+  latitude: z.coerce.number().default(0),
+  longitude: z.coerce.number().default(0),
+  landmark: z.string().default(""),
+  completionDays: z.coerce.number().min(1),
+  wage: z.coerce.number().int().min(0),
+  landArea: z.coerce.number().default(0),
   images: z.array(z.string()),
   requirements: z.record(z.any()).nullable(),
   featured: z.boolean().default(false),
-  status: z.string(), // Assuming Status and JobType are enums
-  type: z.string(),
+  status: z.nativeEnum(Status), // Assuming Status and JobType are enums
+  for: z.nativeEnum(For),
+  type: z.nativeEnum(JobType),
 });
 
 export type FormType = z.infer<typeof FormSchema>;
-const CreateJobForm = () => {
+const CreateJobForm = ({ user }: { user: User }) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -56,14 +60,61 @@ const CreateJobForm = () => {
       latitude: 0,
       longitude: 0,
       landmark: "",
-      completionDays: 0,
-      wage: 0,
-      landArea: 0,
       images: [],
       requirements: null,
       featured: false,
-      status: "",
-      type: "",
+      status: "IN_PROGRESS",
+      type: "FERTILIZATION",
+      for: "LABOUR",
+    },
+  });
+
+  const { execute, status } = useAction(createJob, {
+    onSuccess: (response) => {
+      if (response.success) {
+        toast({
+          title: "Job created successfully",
+          description: "Job has been created successfully",
+        });
+
+        // reset the form
+        form.reset();
+      } else {
+        toast({
+          title: "Job creation failed",
+          description: "Job creation failed",
+        });
+      }
+    },
+    onError: (error) => {
+      if (error.validationErrors) {
+        console.log("Validation error", error.validationErrors);
+        let errorDescription = "";
+        const uniqueErrorMessages = new Set<string>();
+        for (let key in error.validationErrors) {
+          const errorMessages = (
+            error.validationErrors as Record<string, string[]>
+          )[key];
+          errorMessages.forEach((message) => uniqueErrorMessages.add(message));
+        }
+        errorDescription = Array.from(uniqueErrorMessages).join(", \n");
+        toast({
+          title: "Validation error",
+          description: errorDescription,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Job creation failed",
+          description: "Job creation failed",
+        });
+      }
+    },
+    onExecute: () => {
+      toast({
+        title: "Creating job",
+        description: "Creating job",
+      });
     },
   });
 
@@ -76,6 +127,11 @@ const CreateJobForm = () => {
         </pre>
       ),
     });
+
+    const dataWithUserId = data as any;
+    dataWithUserId.userId = user.id;
+
+    execute(dataWithUserId);
   }
   return (
     <Form {...form}>
@@ -114,7 +170,12 @@ const CreateJobForm = () => {
             <FormItem>
               <FormLabel>Completion Days</FormLabel>
               <FormControl>
-                <Input placeholder="Enter completion days" {...field} />
+                <Input
+                  placeholder="Enter completion days"
+                  type="number"
+                  min={1}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -127,7 +188,15 @@ const CreateJobForm = () => {
             <FormItem>
               <FormLabel>Wage</FormLabel>
               <FormControl>
-                <Input placeholder="Enter wage" {...field} />
+                <Input
+                  placeholder={`Enter wage greater than ${
+                    form.watch("completionDays") * 250 || 0
+                  }`}
+                  type="number"
+                  // min wage is 250*completion days
+                  min={0}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -140,13 +209,18 @@ const CreateJobForm = () => {
             <FormItem>
               <FormLabel>Land Area</FormLabel>
               <FormControl>
-                <Input placeholder="Enter land area" {...field} />
+                <Input
+                  placeholder="Enter land area in square feet"
+                  type="number"
+                  min={0}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <FormField
+        {/* <FormField
           control={form.control}
           name="images"
           render={({ field }) => (
@@ -158,8 +232,8 @@ const CreateJobForm = () => {
               <FormMessage />
             </FormItem>
           )}
-        />
-        <Requirements form={form} />
+        /> */}
+        {/* <Requirements form={form} /> */}
         <FormField
           control={form.control}
           name="featured"
@@ -178,19 +252,6 @@ const CreateJobForm = () => {
         />
         <FormField
           control={form.control}
-          name="status"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Status</FormLabel>
-              <FormControl>
-                <Input placeholder="Enter status" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="type"
           render={({ field }) => (
             <FormItem>
@@ -202,15 +263,48 @@ const CreateJobForm = () => {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="LABOUR">Labour</SelectItem>
-                  <SelectItem value="CONTRACTOR">Contractor</SelectItem>
+                  {Object.values(JobType).map((type) => (
+                    <SelectItem key={type} value={type}>
+                      {type}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <FormField
+          control={form.control}
+          name="for"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>For</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="For whom this job is created for?" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {Object.values(For).map((type) => (
+                    <SelectItem key={type} value={type}>
+                      {type}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button
+          type="submit"
+          disabled={status === "executing"}
+          aria-disabled={status === "executing"}
+        >
+          Submit
+        </Button>
       </form>
     </Form>
   );

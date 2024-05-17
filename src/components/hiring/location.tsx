@@ -7,6 +7,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import { getAddress } from "@/lib/action";
 
 const Location = ({ form }: { form: any }) => {
   const { setValue } = form;
@@ -17,15 +18,6 @@ const Location = ({ form }: { form: any }) => {
         async (position) => {
           setValue("latitude", position.coords.latitude);
           setValue("longitude", position.coords.longitude);
-
-          // Fetch the landmark using the Google Maps Geocoding API
-          const response = await fetch(
-            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=YOUR_API_KEY`
-          );
-          const data = await response.json();
-          const landmark = data.results[0].formatted_address;
-
-          setValue("landmark", landmark);
         },
         (error) => {
           console.error("Error getting location", error);
@@ -42,7 +34,7 @@ const Location = ({ form }: { form: any }) => {
           <FormItem>
             <FormLabel>Latitude</FormLabel>
             <FormControl>
-              <Input placeholder="Enter latitude" {...field} />
+              <Input placeholder="Enter latitude" disabled {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -55,7 +47,7 @@ const Location = ({ form }: { form: any }) => {
           <FormItem>
             <FormLabel>Longitude</FormLabel>
             <FormControl>
-              <Input placeholder="Enter longitude" {...field} />
+              <Input placeholder="Enter longitude" disabled {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
