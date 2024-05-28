@@ -1,10 +1,24 @@
 import prisma from "@/utils/prisma";
+import { JobType } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export async function GET(req: Request) {
-  const jobs = prisma.job.findMany();
+  const { searchParams } = new URL(req.url);
+  const jobType = searchParams.get("jobType");
 
-  return jobs;
+  let jobs;
+
+  if (jobType) {
+    jobs = await prisma.job.findMany({
+      where: {
+        type: jobType as JobType,
+      },
+    });
+  } else {
+    jobs = await prisma.job.findMany();
+  }
+
+  return Response.json(jobs);
 }
 
 export async function POST(req: Request) {
@@ -30,10 +44,10 @@ export async function POST(req: Request) {
   });
 
   if (!job) {
-    return { success: false, error: "Failed to create job" };
+    return Response.json({ success: false, error: "Failed to create job" });
   }
 
   revalidatePath("/hiring");
 
-  return job;
+  return Response.json(job);
 }

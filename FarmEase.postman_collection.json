@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "af733a7e-6e99-40d9-bd18-254dafb5d19f",
+		"name": "FarmEase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19888130"
+	},
+	"item": [
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Get all Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/jobs?jobType=HARVESTING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "jobType",
+									"value": "HARVESTING",
+									"description": "HARVESTING\n  IRRIGATION\n  SOWING\n  PLOUGHING\n  CULTIVATION\n  TRANSPORTATION\n  LEVELING\n  FERTILIZATION\n  PESTICIDE_SPRAYING\n  SEED_TREATMENT\n  WEEDING\n  PRUNING\n  TRIMMING\n  PLANTING"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all Jobs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/jobs?jobType=HARVESTING",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "jobType",
+											"value": "HARVESTING",
+											"description": "HARVESTING\n  IRRIGATION\n  SOWING\n  PLOUGHING\n  CULTIVATION\n  TRANSPORTATION\n  LEVELING\n  FERTILIZATION\n  PESTICIDE_SPRAYING\n  SEED_TREATMENT\n  WEEDING\n  PRUNING\n  TRIMMING\n  PLANTING"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 May 2024 17:24:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"clvgbl6z500004wq5yxtcqmax\",\n        \"title\": \"Pestcide\",\n        \"description\": \"The labours would be provided shelter along with food\",\n        \"latitude\": 45,\n        \"longitude\": 63,\n        \"landmark\": \"Farukhnagar\",\n        \"completionDays\": 10,\n        \"wage\": 4000,\n        \"landArea\": 30,\n        \"images\": [],\n        \"requirements\": null,\n        \"featured\": true,\n        \"for\": \"LABOUR\",\n        \"status\": \"PENDING\",\n        \"type\": \"HARVESTING\",\n        \"createdAt\": \"2024-04-26T06:57:01.842Z\",\n        \"updatedAt\": \"2024-04-26T06:55:58.511Z\",\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\"\n    },\n    {\n        \"id\": \"clvgbnjuj00014wq5pu5m1a64\",\n        \"title\": \"Irrigation\",\n        \"description\": \"The labours would be provided shelter along with food\",\n        \"latitude\": 35,\n        \"longitude\": 98,\n        \"landmark\": \"Charkhi-Dadri\",\n        \"completionDays\": 15,\n        \"wage\": 6000,\n        \"landArea\": 20,\n        \"images\": [],\n        \"requirements\": null,\n        \"featured\": true,\n        \"for\": \"LABOUR\",\n        \"status\": \"PENDING\",\n        \"type\": \"IRRIGATION\",\n        \"createdAt\": \"2024-04-26T06:58:51.835Z\",\n        \"updatedAt\": \"2024-04-26T06:57:10.189Z\",\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\"\n    },\n    {\n        \"id\": \"clvgbnjuk00024wq537jxsz8k\",\n        \"title\": \"Harvesting\",\n        \"description\": \"The labours would be provided shelter along with food\",\n        \"latitude\": 65,\n        \"longitude\": 47,\n        \"landmark\": \"Panipat\",\n        \"completionDays\": 20,\n        \"wage\": 8000,\n        \"landArea\": 25,\n        \"images\": [],\n        \"requirements\": null,\n        \"featured\": true,\n        \"for\": \"BOTH\",\n        \"status\": \"PENDING\",\n        \"type\": \"HARVESTING\",\n        \"createdAt\": \"2024-04-26T06:58:51.835Z\",\n        \"updatedAt\": \"2024-04-26T06:57:51.584Z\",\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\"\n    },\n    {\n        \"id\": \"clwaiserw0001auqdx9svl3uo\",\n        \"title\": \"Pesticides\",\n        \"description\": \"All charges will be paid\",\n        \"latitude\": 28.4347304,\n        \"longitude\": 77.0449214,\n        \"landmark\": \"Near Sarva Haryana Gramin Bank\",\n        \"completionDays\": 15,\n        \"wage\": 4000,\n        \"landArea\": 500,\n        \"images\": [],\n        \"requirements\": null,\n        \"featured\": true,\n        \"for\": \"LABOUR\",\n        \"status\": \"IN_PROGRESS\",\n        \"type\": \"PESTICIDE_SPRAYING\",\n        \"createdAt\": \"2024-05-17T10:11:41.049Z\",\n        \"updatedAt\": \"2024-05-17T10:11:41.049Z\",\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\"\n    },\n    {\n        \"id\": \"clwawd1qi0001m9yopcl721rw\",\n        \"title\": \"Harvesting of Wheat Crop\",\n        \"description\": \"Accomodation and food will be provided.\",\n        \"latitude\": 28.4347304,\n        \"longitude\": 77.0449214,\n        \"landmark\": \"Sarva Haryana gramin bank\",\n        \"completionDays\": 15,\n        \"wage\": 5000,\n        \"landArea\": 500,\n        \"images\": [],\n        \"requirements\": null,\n        \"featured\": true,\n        \"for\": \"LABOUR\",\n        \"status\": \"IN_PROGRESS\",\n        \"type\": \"HARVESTING\",\n        \"createdAt\": \"2024-05-17T16:31:39.018Z\",\n        \"updatedAt\": \"2024-05-17T16:31:39.018Z\",\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\"\n    },\n    {\n        \"id\": \"clwawhyi5000110nzzxxml93u\",\n        \"title\": \"Wheat seeds sowing\",\n        \"description\": \"Accomodation and food will be provided.\",\n        \"latitude\": 28.4347304,\n        \"longitude\": 77.0449214,\n        \"landmark\": \"Sarva Haryana gramin bank\",\n        \"completionDays\": 15,\n        \"wage\": 5000,\n        \"landArea\": 500,\n        \"images\": [],\n        \"requirements\": null,\n        \"featured\": false,\n        \"for\": \"LABOUR\",\n        \"status\": \"IN_PROGRESS\",\n        \"type\": \"SOWING\",\n        \"createdAt\": \"2024-05-17T16:35:28.026Z\",\n        \"updatedAt\": \"2024-05-17T16:35:28.026Z\",\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Example Job\",\r\n    \"description\": \"This is an example job\",\r\n    \"latitude\": 37.7749,\r\n    \"longitude\": -122.4194,\r\n    \"landmark\": \"Example Landmark\",\r\n    \"completionDays\": 5,\r\n    \"wage\": 1500,\r\n    \"landArea\": 100,\r\n    \"images\": [\r\n        \"image1.jpg\",\r\n        \"image2.jpg\"\r\n    ],\r\n    \"requirements\": {\r\n        \"experience\": \"2 years\",\r\n        \"skills\": [\r\n            \"Ploughing\",\r\n            \"Planting\",\r\n            \"Irrigating\"\r\n        ]\r\n    },\r\n    \"featured\": true,\r\n    \"status\": \"IN_PROGRESS\",\r\n    \"for\": \"LABOUR\",\r\n    \"type\": \"HARVESTING\",\r\n    \"userId\": \"clvg334pi0000db2b3t39tjtx\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/jobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/jobs/clvgbl6z500004wq5yxtcqmax",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"jobs",
+								"clvgbl6z500004wq5yxtcqmax"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/jobs/clvgbl6z500004wq5yxtcqmax",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"jobs",
+										"clvgbl6z500004wq5yxtcqmax"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 May 2024 17:30:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"clvgbl6z500004wq5yxtcqmax\",\n    \"title\": \"Pestcide\",\n    \"description\": \"The labours would be provided shelter along with food\",\n    \"latitude\": 45,\n    \"longitude\": 63,\n    \"landmark\": \"Farukhnagar\",\n    \"completionDays\": 10,\n    \"wage\": 4000,\n    \"landArea\": 30,\n    \"images\": [],\n    \"requirements\": null,\n    \"featured\": true,\n    \"for\": \"LABOUR\",\n    \"status\": \"PENDING\",\n    \"type\": \"HARVESTING\",\n    \"createdAt\": \"2024-04-26T06:57:01.842Z\",\n    \"updatedAt\": \"2024-04-26T06:55:58.511Z\",\n    \"userId\": \"clvg334pi0000db2b3t39tjtx\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 May 2024 17:31:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"clvg334pi0000db2b3t39tjtx\",\n        \"name\": \"Nitin Sharma\",\n        \"email\": \"nitins9868@gmail.com\",\n        \"emailVerified\": null,\n        \"password\": null,\n        \"image\": \"https://lh3.googleusercontent.com/a/ACg8ocLXP8hgAzX_coMaqDZtIm5Dz0wk3mK-MUwoquYkg2pB_pguTTQ=s96-c\",\n        \"aadharNumber\": null,\n        \"phoneNumber\": \"9868477658\",\n        \"role\": \"USER\",\n        \"createdAt\": \"2024-04-26T02:59:02.167Z\",\n        \"updatedAt\": \"2024-04-26T05:43:07.255Z\"\n    },\n    {\n        \"id\": \"clvge9d4b0000zvt13axt3xfz\",\n        \"name\": \"MANAN SETHI\",\n        \"email\": \"manan.sethi.69@gmail.com\",\n        \"emailVerified\": null,\n        \"password\": null,\n        \"image\": \"https://lh3.googleusercontent.com/a/ACg8ocLI_A4_kJrV3Lfk5aCnhvurhO_-T55wei2GYgSVUneDQavbpls=s96-c\",\n        \"aadharNumber\": null,\n        \"phoneNumber\": null,\n        \"role\": \"USER\",\n        \"createdAt\": \"2024-04-26T08:11:48.779Z\",\n        \"updatedAt\": \"2024-04-26T08:11:48.779Z\"\n    },\n    {\n        \"id\": \"clvgef6ao00009ui9qaujmirj\",\n        \"name\": \"Anshul Dogra\",\n        \"email\": \"dograanshul01@gmail.com\",\n        \"emailVerified\": null,\n        \"password\": null,\n        \"image\": \"https://lh3.googleusercontent.com/a/ACg8ocJUDuU-sSfCBLZvM3lNUtcDuRj5RuKPUoUVnAnnLBOHg7hFNohI1A=s96-c\",\n        \"aadharNumber\": null,\n        \"phoneNumber\": null,\n        \"role\": \"USER\",\n        \"createdAt\": \"2024-04-26T08:16:19.873Z\",\n        \"updatedAt\": \"2024-04-26T08:16:19.873Z\"\n    },\n    {\n        \"id\": \"clvgfczk00000dfwldtdxgrvb\",\n        \"name\": \"Kartik Shukla\",\n        \"email\": \"kartik20csu048@ncuindia.edu\",\n        \"emailVerified\": null,\n        \"password\": null,\n        \"image\": \"https://lh3.googleusercontent.com/a/ACg8ocIFk57QxS2umXYXPp_0Vz-advOVImfR5MdbF59kjnqPD0ev5w=s96-c\",\n        \"aadharNumber\": null,\n        \"phoneNumber\": null,\n        \"role\": \"USER\",\n        \"createdAt\": \"2024-04-26T08:42:37.440Z\",\n        \"updatedAt\": \"2024-04-26T08:42:37.440Z\"\n    },\n    {\n        \"id\": \"clwbo98t1000011gx7n64a5ha\",\n        \"name\": \"Harshit Arora\",\n        \"email\": \"harshit20csu041@ncuindia.edu\",\n        \"emailVerified\": null,\n        \"password\": null,\n        \"image\": \"https://lh3.googleusercontent.com/a/ACg8ocJ59SNCe4SO1hOZnL5gyzSD4T0MqNWCrl-jSkGZQmaiyCB7=s96-c\",\n        \"aadharNumber\": null,\n        \"phoneNumber\": null,\n        \"role\": \"USER\",\n        \"createdAt\": \"2024-05-18T05:32:30.805Z\",\n        \"updatedAt\": \"2024-05-18T05:32:30.805Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get single user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/user?id=clvg334pi0000db2b3t39tjtx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "clvg334pi0000db2b3t39tjtx"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "Get All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/vehicle?type=HARVESTER",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicle"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "HARVESTER"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get allVehicles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/vehicle",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"vehicle"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 May 2024 17:35:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"clvg5nrr300032injqdnqe27g\",\n        \"name\": \"Agco DT275B\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1200,\n        \"description\": \"The Agco DT275B is a 275 HP tractor with a 4WD and cab. This is a high-performance tractor suitable for large farms and heavy-duty applications.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"275HP\",\n            \"weight\": \"7,500 kg\",\n            \"transmission\": \"16F/4R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/agco.png?sp=r&st=2024-04-26T08:57:39Z&se=2025-05-14T16:57:39Z&sv=2022-11-02&sr=b&sig=%2FcRCemXfAsSGyImFwtDNw1DgVAF%2F4La7cQLJX4uZQ9U%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:04.384Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5ns2p00052injh8aixm8q\",\n        \"name\": \"Agrotron 7250 TTV\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1300,\n        \"description\": \"The Agrotron 7250 TTV is a 250 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"250HP\",\n            \"weight\": \"6,500 kg\",\n            \"transmission\": \"16F/4R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/agrotron.png?sp=r&st=2024-04-26T08:59:09Z&se=2025-05-14T16:59:09Z&sv=2022-11-02&sr=b&sig=r8Xldm4d%2BA7JIQlkdYOmYTncV8ftEES%2BLxOEHKOWOSk%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:04.801Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5nse200072inj4qm4tskw\",\n        \"name\": \"Challenger MT875E\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1400,\n        \"description\": \"The Challenger MT875E is a 500 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"500HP\",\n            \"weight\": \"10,000 kg\",\n            \"transmission\": \"16F/4R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/challenger.png?sp=r&st=2024-04-26T08:59:32Z&se=2025-04-10T16:59:32Z&sv=2022-11-02&sr=b&sig=aic2XeCFo2UbWRd07nE5Lct6fcV%2BPOUfvEO%2FqPuINFg%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:05.210Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5nspg00092injdg6ldvp2\",\n        \"name\": \"Deltatrack 570\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1500,\n        \"description\": \"The Deltatrack 570 is a 570 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"570HP\",\n            \"weight\": \"12,000 kg\",\n            \"transmission\": \"16F/4R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/deltatrack.png?sp=r&st=2024-04-26T09:00:02Z&se=2025-05-07T17:00:02Z&sv=2022-11-02&sr=b&sig=5Fu41MwC1W59%2BeOzliA580v0QficwZB0Hbw3CI5AppY%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:05.620Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5nt13000b2injhjh143yd\",\n        \"name\": \"Ferguson 5710\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1600,\n        \"description\": \"The Ferguson 5710 is a 110 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"110HP\",\n            \"weight\": \"3,500 kg\",\n            \"transmission\": \"12F/12R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/ferguson.png?sp=r&st=2024-04-26T09:00:22Z&se=2025-06-26T17:00:22Z&spr=https&sv=2022-11-02&sr=b&sig=AJsfsIrJS07lrqSUbkjngAUDEHdQexCzQAsCcUtELDs%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:06.039Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5nrg300012injil0w3pgt\",\n        \"name\": \"John Deere 8335R\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1000,\n        \"description\": \"The John Deere 5100M is a 100 HP utility tractor with a 4WD and cab. This is an ideal tractor for small to medium-sized farms, offering reliable performance and a comfortable operating environment.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"100HP\",\n            \"weight\": \"3,500 kg\",\n            \"transmission\": \"12F/12R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/john-deere.png?sp=r&st=2024-04-26T09:00:44Z&se=2025-05-07T17:00:44Z&sv=2022-11-02&sr=b&sig=b8pPz1%2BuSVVRS03BuwqaXogtR%2BP4xCUIpx5uB22yAAA%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:03.987Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5ntc4000d2injw7bb0diw\",\n        \"name\": \"Kuboto M7-171\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1700,\n        \"description\": \"The Kuboto M7-171 is a 170 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"170HP\",\n            \"weight\": \"5,500 kg\",\n            \"transmission\": \"16F/4R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/kuboto.png?sp=r&st=2024-04-26T09:01:04Z&se=2025-04-17T17:01:04Z&sv=2022-11-02&sr=b&sig=1KLHCKAOgiNxQYlkiSrwKLYlkxpzuOqxnQWkHjupmhk%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:06.436Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5ntn8000f2inj9louaqc1\",\n        \"name\": \"Magnum 380\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1800,\n        \"description\": \"The Magnum 380 is a 380 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"380HP\",\n            \"weight\": \"8,500 kg\",\n            \"transmission\": \"16F/4R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/magnum.png?sp=r&st=2024-04-26T09:01:22Z&se=2025-06-19T17:01:22Z&sv=2022-11-02&sr=b&sig=Y9ijI9nntpPrth3Lw8AFlj2bXrZZ7bjDnRrZ20Qebbg%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:06.836Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5ntyu000h2inj8grk4i2r\",\n        \"name\": \"New Holland T8.410\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 1900,\n        \"description\": \"The New Holland T8.410 is a 410 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"410HP\",\n            \"weight\": \"9,500 kg\",\n            \"transmission\": \"16F/4R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/new-holland.png?sp=r&st=2024-04-26T09:01:42Z&se=2025-05-21T17:01:42Z&sv=2022-11-02&sr=b&sig=dygqhKIz5K6QGo0GByuzfmwl%2BWozeBpcfz7WwbQXKaQ%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:07.254Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    },\n    {\n        \"id\": \"clvg5nua0000j2injgcfkjpu1\",\n        \"name\": \"Yanmar YT359\",\n        \"number\": \"1\",\n        \"type\": \"TRACTOR\",\n        \"pricePerDay\": 2000,\n        \"description\": \"The Yanmar YT359 is a 59 HP tractor with a 4WD and cab.\",\n        \"specifications\": {\n            \"fuel\": \"Diesel\",\n            \"cabin\": \"A/C\",\n            \"drive\": \"4WD\",\n            \"engine\": \"59HP\",\n            \"weight\": \"2,500 kg\",\n            \"transmission\": \"12F/12R\"\n        },\n        \"images\": [\n            \"https://farmease.blob.core.windows.net/farmease/yanmar.png?sp=r&st=2024-04-26T09:02:12Z&se=2025-04-23T17:02:12Z&sv=2022-11-02&sr=b&sig=RaLFxyiCc9CynoGShf55MN9dHNhsuyTxbPCcJ8S0TDw%3D\"\n        ],\n        \"rentalTerms\": {\n            \"deposit\": \"Aadhar Card / Credit Card Hold\",\n            \"cleaning\": 1,\n            \"delivery\": 1,\n            \"insurance\": 1,\n            \"min-rental\": \"1\",\n            \"fuel-policy\": \"Full to Full\"\n        },\n        \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n        \"createdAt\": \"2024-04-26T04:11:07.656Z\",\n        \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Vehicle Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/vehicle/clvg5nrr300032injqdnqe27g",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicle",
+								"clvg5nrr300032injqdnqe27g"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vehicle Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/vehicle/clvg5nrr300032injqdnqe27g",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"vehicle",
+										"clvg5nrr300032injqdnqe27g"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 May 2024 17:36:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"clvg5nrr300032injqdnqe27g\",\n    \"name\": \"Agco DT275B\",\n    \"number\": \"1\",\n    \"type\": \"TRACTOR\",\n    \"pricePerDay\": 1200,\n    \"description\": \"The Agco DT275B is a 275 HP tractor with a 4WD and cab. This is a high-performance tractor suitable for large farms and heavy-duty applications.\",\n    \"specifications\": {\n        \"fuel\": \"Diesel\",\n        \"cabin\": \"A/C\",\n        \"drive\": \"4WD\",\n        \"engine\": \"275HP\",\n        \"weight\": \"7,500 kg\",\n        \"transmission\": \"16F/4R\"\n    },\n    \"images\": [\n        \"https://farmease.blob.core.windows.net/farmease/agco.png?sp=r&st=2024-04-26T08:57:39Z&se=2025-05-14T16:57:39Z&sv=2022-11-02&sr=b&sig=%2FcRCemXfAsSGyImFwtDNw1DgVAF%2F4La7cQLJX4uZQ9U%3D\"\n    ],\n    \"rentalTerms\": {\n        \"deposit\": \"Aadhar Card / Credit Card Hold\",\n        \"cleaning\": 1,\n        \"delivery\": 1,\n        \"insurance\": 1,\n        \"min-rental\": \"1\",\n        \"fuel-policy\": \"Full to Full\"\n    },\n    \"userId\": \"clvg334pi0000db2b3t39tjtx\",\n    \"createdAt\": \"2024-04-26T04:11:04.384Z\",\n    \"updatedAt\": \"2024-04-26T09:02:28.569Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

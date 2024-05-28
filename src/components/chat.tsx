@@ -51,7 +51,6 @@ const Chat = ({
 
     let textContent = "";
 
-    setLoading(false);
     for await (const delta of readStreamableValue(newMessage)) {
       textContent = `${textContent}${delta}`;
 
@@ -62,6 +61,7 @@ const Chat = ({
     }
 
     setInput("");
+    setLoading(false);
   };
 
   return (
@@ -86,27 +86,12 @@ const Chat = ({
               </div>
               <div className="flex-1 px-1 ml-4 space-y-2 overflow-hidden">
                 <MemoizedReactMarkdown
-                  className="prose break-words prose-p:leading-relaxed prose-pre:p-0 whitespace-pre-line"
+                  className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 prose-base !max-w-none"
                   remarkPlugins={[remarkGfm, remarkMath]}
                 >
                   {message.content}
                 </MemoizedReactMarkdown>
               </div>
-              {loading && (
-                <>
-                  <div
-                    className={cn(
-                      "flex size-8 shrink-0 select-none items-center justify-center rounded-lg border shadow",
-                      message.role === "user" ? "bg-background" : "bg-popover"
-                    )}
-                  >
-                    {message.role === "user" ? <IconUser /> : <GeminiIcon />}
-                  </div>
-                  <div className="flex-1 px-1 ml-4 space-y-2 overflow-hidden">
-                    <span className="loader"></span>
-                  </div>
-                </>
-              )}
             </div>
           ))
         ) : (
@@ -230,9 +215,14 @@ const Chat = ({
             placeholder={chat.start}
             type="text"
             value={input}
+            disabled={loading}
             onChange={handleInputChange}
           />
-          <Button type="submit" className="text-white rounded-r-md px-4 py-2">
+          <Button
+            type="submit"
+            className="text-white rounded-r-md px-4 py-2"
+            disabled={loading}
+          >
             <SearchIcon className="h-5 w-5" />
           </Button>
         </form>

@@ -1,0 +1,20 @@
+{
+  "title": "Example Job",
+  "description": "This is an example job",
+  "latitude": 37.7749,
+  "longitude": -122.4194,
+  "landmark": "Example Landmark",
+  "completionDays": 5,
+  "wage": 1500,
+  "landArea": 100,
+  "images": ["image1.jpg", "image2.jpg"],
+  "requirements": {
+    "experience": "2 years",
+    "skills": ["JavaScript", "HTML", "CSS"]
+  },
+  "featured": true,
+  "status": "ACTIVE",
+  "for": "LABOUR",
+  "type": "HARVESTING",
+  "userId": "123456789"
+}

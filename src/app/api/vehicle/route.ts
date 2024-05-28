@@ -1,7 +1,20 @@
 import prisma from "@/utils/prisma";
+import { VehicleType } from "@prisma/client";
 
 export async function GET(req: Request) {
-  const vehicles = prisma.vehicle.findMany();
+  const { searchParams } = new URL(req.url);
+  const type = searchParams.get("type");
 
-  return vehicles;
+  if (!type) {
+    const vehicles = await prisma.vehicle.findMany();
+    return Response.json(vehicles);
+  }
+
+  const vehicles = await prisma.vehicle.findMany({
+    where: {
+      type: type as VehicleType,
+    },
+  });
+
+  return Response.json(vehicles);
 }
